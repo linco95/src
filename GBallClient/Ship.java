@@ -1,7 +1,11 @@
-package GBall;
+package GBallClient;
 
 import java.awt.Color;
 import java.awt.event.*;
+
+import Shared.Const;
+import Shared.GameEntity;
+import Shared.Vector2D;
 
 public class Ship extends GameEntity implements KeyListener {
 

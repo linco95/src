@@ -1,4 +1,4 @@
-package GBall;
+package GBallServer;
 
 import java.awt.event.*;
 import java.io.ByteArrayOutputStream;
@@ -7,6 +7,11 @@ import java.io.ObjectOutputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+
+import Shared.Const;
+import Shared.EntityManager;
+import Shared.MsgData;
+import Shared.Vector2D;
 
 public class World {
 

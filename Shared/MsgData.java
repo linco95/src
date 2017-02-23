@@ -1,4 +1,4 @@
-package GBall;
+package Shared;
 
 import java.io.Serializable;
 

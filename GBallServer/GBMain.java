@@ -1,4 +1,4 @@
-package GBall;
+package GBallServer;
 
 public class GBMain {
 	public static void main(String[] argc) {

@@ -1,7 +1,8 @@
-package GBall;
+package GBallServer;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import Shared.*;
 
 public class Ball extends GameEntity {
 	private Color m_color;
@@ -10,13 +11,6 @@ public class Ball extends GameEntity {
 		super(position, speed, new Vector2D(0, 0), Const.BALL_MAX_ACCELERATION, Const.BALL_MAX_SPEED,
 				Const.BALL_FRICTION);
 		m_color = Const.BALL_COLOR;
-	}
-
-	@Override
-	public void render(Graphics g) {
-		g.setColor(m_color);
-		g.drawOval((int) getPosition().getX() - Const.BALL_RADIUS, (int) getPosition().getY() - Const.BALL_RADIUS,
-				Const.BALL_RADIUS * 2, Const.BALL_RADIUS * 2);
 	}
 
 	@Override

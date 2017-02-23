@@ -1,4 +1,4 @@
-package GBall;
+package GBallClient;
 
 public class KeyConfig {
 	private final int m_leftKey;

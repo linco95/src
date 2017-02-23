@@ -1,9 +1,14 @@
-package GBall;
+package Shared;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.LinkedList;
 import java.util.ListIterator;
+
+import GBallClient.Ball;
+import GBallClient.KeyConfig;
+import GBallClient.ScoreKeeper;
+import GBallClient.Ship;
 
 public class EntityManager {
 	private static LinkedList<GameEntity> m_entities = new LinkedList<GameEntity>();

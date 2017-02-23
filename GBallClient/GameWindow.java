@@ -1,7 +1,10 @@
-package GBall;
+package GBallClient;
 
 import java.awt.*;
 import java.awt.event.*;
+
+import Shared.Const;
+import Shared.EntityManager;
 
 public class GameWindow extends Frame implements WindowListener {
 
