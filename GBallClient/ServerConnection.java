@@ -2,6 +2,7 @@ package GBallClient;
 
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.net.SocketException;
 
 import Shared.MsgData;
 
@@ -17,6 +18,17 @@ public class ServerConnection
 	{
 		serverAddress = address;
 		serverPort = port;
+		
+		try
+		{
+			DatagramSocket socket = new DatagramSocket(serverPort, serverAddress);
+		}
+		
+		catch (SocketException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	
@@ -39,12 +51,12 @@ public class ServerConnection
 		
 	}
 	
-	public MsgData receiveMessage()
+	public void receiveMessage()
 	{
 		MsgData receivedMessage = null;
+		String receivedString = null;
 		
 		
-		
-		return receivedMessage;
+				
 	}
 }
