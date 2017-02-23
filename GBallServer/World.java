@@ -29,8 +29,6 @@ public class World {
 	private double m_lastTime = System.currentTimeMillis();
 	private double m_actualFps = 0.0;
 
-	private final GameWindow m_gameWindow = new GameWindow();
-
 	public void process() {
 		initPlayers();
 
@@ -61,7 +59,6 @@ public class World {
 				EntityManager.getInstance().updatePositions();
 				EntityManager.getInstance().checkBorderCollisions(Const.DISPLAY_WIDTH, Const.DISPLAY_HEIGHT);
 				EntityManager.getInstance().checkShipCollisions();
-				m_gameWindow.repaint();
 			}
 		}
 	}
@@ -106,9 +103,5 @@ public class World {
 	public double getActualFps() {
 
 		return m_actualFps;
-	}
-
-	public void addKeyListener(KeyListener k) {
-		m_gameWindow.addKeyListener(k);
 	}
 }
