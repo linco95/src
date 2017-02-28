@@ -1,6 +1,9 @@
-package Shared;
+package gball.server;
 
 import java.io.Serializable;
+
+import gball.shared.EntityMeta;
+import gball.shared.Vector2D;
 
 public abstract class GameEntity implements Serializable {
 	/**
@@ -16,6 +19,8 @@ public abstract class GameEntity implements Serializable {
 
 	private double m_acceleration; // Accelerates by multiplying this with
 									// m_direction
+	private static int currentID = 0;
+	private final int m_entityID;
 	private long m_lastUpdateTime;
 	private double m_maxAcceleration;
 	private double m_maxSpeed;
@@ -29,6 +34,7 @@ public abstract class GameEntity implements Serializable {
 
 	public GameEntity(final Vector2D position, final Vector2D speed, final Vector2D direction, double maxAcceleration,
 			double maxSpeed, double friction) {
+		m_entityID = currentID++;
 		m_position = position;
 		m_speed = speed;
 		m_direction = direction;
@@ -117,5 +123,12 @@ public abstract class GameEntity implements Serializable {
 	public void displace(final Vector2D displacement) {
 		m_position.add(displacement);
 	}
-
+	
+	public int getID(){
+		return m_entityID;
+	}
+	
+	public EntityMeta getMeta(){
+		return new EntityMeta(m_entityID, m_position, m_direction);
+	}
 }
