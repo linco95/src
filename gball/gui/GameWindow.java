@@ -39,7 +39,7 @@ public class GameWindow extends Frame implements WindowListener {
 	offScreenGraphicsCtx.setColor(Const.BG_COLOR);
 	offScreenGraphicsCtx.fillRect(0,0,getSize().width,getSize().height);	
 	//EntityManager.getInstance().renderAll(offScreenGraphicsCtx);
-	ScoreKeeper.getInstance().render(offScreenGraphicsCtx);
+	ScoreKeeperRepresentation.getInstance().render(offScreenGraphicsCtx);
 
 	if(Const.SHOW_FPS) {
 	    //offScreenGraphicsCtx.drawString("FPS: " + (int) World.getInstance().getActualFps(), 10, 50);

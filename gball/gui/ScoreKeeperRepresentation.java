@@ -2,12 +2,12 @@ package gball.gui;
 
 import gball.shared.Const;
 
-public class ScoreKeeper {
+public class ScoreKeeperRepresentation {
     private static class ScoreKeeperSingletonHolder { 
-        public static final ScoreKeeper instance = new ScoreKeeper();
+        public static final ScoreKeeperRepresentation instance = new ScoreKeeperRepresentation();
     }
 
-    public static ScoreKeeper getInstance() {
+    public static ScoreKeeperRepresentation getInstance() {
         return ScoreKeeperSingletonHolder.instance;
     }
 
@@ -19,7 +19,7 @@ public class ScoreKeeper {
 		m_team2Score += deltaTeam2;
     }
 
-    private ScoreKeeper() {
+    private ScoreKeeperRepresentation() {
 		m_team1Score = 0;
 		m_team2Score = 0;
     }

@@ -26,8 +26,6 @@ public abstract class GameEntity implements Serializable {
 	private double m_maxSpeed;
 	private double m_friction;
 
-	public abstract void render(java.awt.Graphics g);
-
 	public abstract double getRadius();
 
 	public abstract boolean givesPoints();
