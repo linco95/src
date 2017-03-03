@@ -1,4 +1,4 @@
-package gball.server;
+package gball.engine;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

@@ -1,13 +1,9 @@
-package gball.client;
+package gball.gui;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.util.LinkedList;
 import java.util.ListIterator;
-
-import gball.gui.BallRepresentation;
-import gball.gui.RenderableEntity;
-import gball.gui.ShipRepresentation;
-import gball.shared.Vector2D;
 
 public class RenderableEntityManager {
 
@@ -28,14 +24,15 @@ public class RenderableEntityManager {
 	 m_entities.add(new ShipRepresentation(ID, col));
 	 }
 
-	public void addBall(final Vector2D position, final Vector2D speed) {
+	public void addBall() {
 		m_entities.add(new BallRepresentation());
 	}
 
 	public void updatePositions(/*packet from server?*/) {
-		for (ListIterator<RenderableEntity> itr = m_entities.listIterator(); itr.hasNext();) {
-			// Update pos from network itr.next().move();
-		}
+		// getEntity(msg.getID()).update(
+//		for (ListIterator<RenderableEntity> itr = m_entities.listIterator(); itr.hasNext();) {
+//			// Update pos from network itr.next().move(); (compare ID)
+//		}
 	}
 	
 	public RenderableEntity getEntity(final int ID){
@@ -46,6 +43,13 @@ public class RenderableEntityManager {
 			}
 		}
 		return null;
+	}
+	
+	
+	public void renderAll(Graphics g) {
+		for (ListIterator<RenderableEntity> itr = m_entities.listIterator(0); itr.hasNext();) {
+			itr.next().render(g);
+		}
 	}
 	
 	// This shouldn't be necessary here

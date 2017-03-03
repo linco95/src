@@ -1,4 +1,4 @@
-package gball.server;
+package gball.engine;
 
 public class ScoreKeeper {
 	private static class ScoreKeeperSingletonHolder {

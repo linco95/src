@@ -1,4 +1,4 @@
-package gball.server;
+package gball.engine;
 
 import java.util.LinkedList;
 import java.util.ListIterator;

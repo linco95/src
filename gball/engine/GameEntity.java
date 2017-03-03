@@ -1,4 +1,4 @@
-package gball.server;
+package gball.engine;
 
 import java.io.Serializable;
 

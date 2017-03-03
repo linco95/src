@@ -9,10 +9,9 @@ public class ShipRepresentation extends RenderableEntity {
 	private final Color m_color;
 	
 	
-	// rotation/brake/accelerate?
-	
 	public ShipRepresentation(final int ID, final Color col) {
 		super(ID);
+		// TODO: Should the server provide the color too to ensure consistency?
 		m_color = col;
 	}
 

@@ -4,10 +4,15 @@ import java.awt.Color;
 import java.awt.Font;
 
 public final class Const {
+	
+	// Network related constants (move to its own const?)
+	public final static int NEEDEDPLAYERS = 4;
+	
+	
     // World-related constants
     public final static double		TARGET_FPS = 50;
     public final static double		FRAME_INCREMENT = 1000 / TARGET_FPS;
-    public final static String		APP_NAME = "Geometry Ball Tournament 2014";
+    public final static String		APP_NAME = "Networked Geometry Ball Tournament 2017 Client";
     public final static int            DISPLAY_WIDTH = 1024;
     public final static int		DISPLAY_HEIGHT = 758;
     public final static int            WINDOW_TOP_HEIGHT = 30;

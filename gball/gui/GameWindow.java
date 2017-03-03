@@ -1,5 +1,6 @@
 package gball.gui;
 
+import java.awt.Color;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -23,12 +24,22 @@ public class GameWindow extends Frame implements WindowListener {
     
     public GameWindow() {
         addWindowListener(this);
-        	
         setSize(Const.DISPLAY_WIDTH, Const.DISPLAY_HEIGHT);
         setTitle(Const.APP_NAME);
+        initializeEntities();
         setVisible(true);
     }
-
+    
+    private void initializeEntities(){
+    	RenderableEntityManager entites = RenderableEntityManager.getInstance();
+    	// Sub-optimal to have to have this hard coded (especially the ID) and this has to be the same on the server to get the correct representation. This solution only allows four players but that is ok.
+    	entites.addBall();
+    	entites.addShip(1, Color.RED);
+    	entites.addShip(2, Color.RED);
+    	entites.addShip(3, Color.GREEN);
+    	entites.addShip(4, Color.GREEN);
+    }
+    
     @Override
     public void update(Graphics g) {
         if (offScreenGraphicsCtx == null) {
@@ -38,7 +49,7 @@ public class GameWindow extends Frame implements WindowListener {
 
 	offScreenGraphicsCtx.setColor(Const.BG_COLOR);
 	offScreenGraphicsCtx.fillRect(0,0,getSize().width,getSize().height);	
-	//EntityManager.getInstance().renderAll(offScreenGraphicsCtx);
+	RenderableEntityManager.getInstance().renderAll(offScreenGraphicsCtx);
 	ScoreKeeperRepresentation.getInstance().render(offScreenGraphicsCtx);
 
 	if(Const.SHOW_FPS) {
