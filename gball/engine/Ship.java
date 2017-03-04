@@ -17,8 +17,8 @@ public class Ship extends GameEntity {
 								// rotating counterclockwise
 	private boolean braking = false;
 
-	public Ship(final Vector2D position, final Vector2D speed, final Vector2D direction, final Color col) {
-		super(position, speed, direction, Const.SHIP_MAX_ACCELERATION, Const.SHIP_MAX_SPEED, Const.SHIP_FRICTION);
+	public Ship(final int ID, final Vector2D position, final Vector2D speed, final Vector2D direction, final Color col) {
+		super(ID, position, speed, direction, Const.SHIP_MAX_ACCELERATION, Const.SHIP_MAX_SPEED, Const.SHIP_FRICTION);
 	}
 
 	public void updateInput(final boolean rightKey, final boolean leftKey, final boolean accelerateKey, final boolean brakeKey) {

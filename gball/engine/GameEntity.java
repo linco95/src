@@ -19,7 +19,6 @@ public abstract class GameEntity implements Serializable {
 
 	private double m_acceleration; // Accelerates by multiplying this with
 									// m_direction
-	private static int currentID = 0;
 	private final int m_entityID;
 	private long m_lastUpdateTime;
 	private double m_maxAcceleration;
@@ -30,9 +29,9 @@ public abstract class GameEntity implements Serializable {
 
 	public abstract boolean givesPoints();
 
-	public GameEntity(final Vector2D position, final Vector2D speed, final Vector2D direction, double maxAcceleration,
+	public GameEntity(final int ID, final Vector2D position, final Vector2D speed, final Vector2D direction, double maxAcceleration,
 			double maxSpeed, double friction) {
-		m_entityID = currentID++;
+		m_entityID = ID;
 		m_position = position;
 		m_speed = speed;
 		m_direction = direction;

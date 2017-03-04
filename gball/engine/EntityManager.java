@@ -1,6 +1,7 @@
 package gball.engine;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.ListIterator;
 
 import gball.shared.Const;
@@ -19,14 +20,10 @@ public class EntityManager {
 
 	private EntityManager() {
 	}
-
-//	public void addShip(final Vector2D position, final Vector2D speed, final Vector2D direction, final Color color,
-//			final KeyConfig kc) {
-//		m_entities.add(new Ship(position, speed, direction, color, kc));
-//	}
-
-	public void addBall(final Vector2D position, final Vector2D speed) {
-		m_entities.add(new Ball(position, speed));
+	
+	public void addEntity(GameEntity ent){
+		if(ent != null)
+			m_entities.add(ent);
 	}
 
 	public void updatePositions() {
@@ -131,8 +128,16 @@ public class EntityManager {
 		}
 	}
 
-	public static LinkedList<GameEntity> getState() {
-
+	public static GameEntity getEntity(final int ID){
+		for(GameEntity ent : m_entities){
+			if(ent.getID() == ID) 
+				return ent;
+		}
+		return null;
+	}
+	
+	public static List<GameEntity> getEntites() {
 		return m_entities;
 	}
+
 }

@@ -52,9 +52,9 @@ public class GameWindow extends Frame implements WindowListener {
 	RenderableEntityManager.getInstance().renderAll(offScreenGraphicsCtx);
 	ScoreKeeperRepresentation.getInstance().render(offScreenGraphicsCtx);
 
-	if(Const.SHOW_FPS) {
-	    //offScreenGraphicsCtx.drawString("FPS: " + (int) World.getInstance().getActualFps(), 10, 50);
-	}
+//	if(Const.SHOW_FPS) {
+//	    //offScreenGraphicsCtx.drawString("FPS: " + (int) World.getInstance().getActualFps(), 10, 50);
+//	}
 
         // Draw the scene onto the screen
         if(offScreenImage != null){
