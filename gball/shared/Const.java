@@ -9,14 +9,14 @@ public final class Const {
 	public final static int NEEDEDPLAYERS = 4;
 	// Adjust to lower/higher data traffic and if TCP introduces to much delay
 	// (the latter would be unnecessary with UDP)
-	public final static int SERVERUPDATERATE = 128; // Ticks/second default: 30
+	public final static int SERVERUPDATERATE = 60; // Ticks/second default: 30
 	public final static double SERVER_INCREMENT = 1000 / SERVERUPDATERATE;
 	// Two client updates per server tick
-	public final static int CLIENTUPDATERATE = 128; // Ticks/second default: 60
+	public final static int CLIENTUPDATERATE = 60; // Ticks/second default: 60
 	public final static double CLIENT_INCREMENT = 1000 / CLIENTUPDATERATE;
 
 	// World-related constants
-	public final static double TARGET_FPS = 50; // default: 50
+	public final static double TARGET_FPS = 60; // default: 50
 	public final static double FRAME_INCREMENT = 1000 / TARGET_FPS;
 	public final static String APP_NAME = "Networked Geometry Ball Tournament 2017 Client";
 	public final static int DISPLAY_WIDTH = 1024;
@@ -28,9 +28,9 @@ public final class Const {
 	public final static int FONT_SIZE = 24;
 
 	// Disabled for now as this would rather be current updaterate
-	// public final static boolean SHOW_FPS = false;
-	// public final static Color FPS_TEXT_COLOR = Color.RED;
-	// public final static Vector2D FPS_TEXT_POSITION = new Vector2D(0.0, 0.0);
+	 public final static boolean SHOW_FPS = true;
+	 public final static Color FPS_TEXT_COLOR = Color.RED;
+	 public final static Vector2D FPS_TEXT_POSITION = new Vector2D(0.0, 0.0);
 
 	public final static Vector2D TEAM1_SCORE_TEXT_POSITION = new Vector2D((double) (DISPLAY_WIDTH / 2) - 120, 52.0);
 	public final static Vector2D TEAM2_SCORE_TEXT_POSITION = new Vector2D((double) (DISPLAY_WIDTH / 2) + 120, 52.0);

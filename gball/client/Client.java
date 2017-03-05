@@ -1,5 +1,7 @@
 package gball.client;
 
+import javax.swing.JOptionPane;
+
 import gball.gui.GameWindow;
 import gball.shared.Const;
 
@@ -7,15 +9,21 @@ public class Client {
 	private final GameWindow m_gameWindow;
 	private final InputListener m_inputs;
 	private double m_lastTime = System.currentTimeMillis();
-	@SuppressWarnings("unused")
-	private double m_actualUpdateRate = 0.0;
+	public static double m_actualUpdateRate = 0.0;
 	private ClientToServer m_connection;
 
 	public static void main(String[] args) {
 		// Setup connection to server and launch gui
 		// repaint gui on new server update (no need to do it before that as no
 		// simulation is happening on the clients)
-		Client instance = new Client("localhost", 1337);
+		String serverHost = JOptionPane.showInputDialog(null,
+				"Enter the server's hostname:", "Hostname?",
+				JOptionPane.QUESTION_MESSAGE);
+		int serverPort = Integer.parseInt(JOptionPane.showInputDialog(null,
+				"Enter the server's port:", "Port?",
+				JOptionPane.QUESTION_MESSAGE));
+		;
+		Client instance = new Client(serverHost, serverPort);
 		// start loop
 		instance.start();
 	}
@@ -24,7 +32,7 @@ public class Client {
 		System.out.println("Starting client.");
 		m_gameWindow = new GameWindow();
 		m_connection = new ClientToServer(m_gameWindow, serverHostname, serverPort);
-		m_inputs = new InputListener(/* Ask for preferred controls */);
+		m_inputs = new InputListener();
 		m_gameWindow.addKeyListener(m_inputs);
 	}
 

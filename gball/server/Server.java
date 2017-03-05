@@ -29,12 +29,10 @@ public class Server {
 	private double m_actualUpdateRate = 0.0;
 
 	public static void main(String[] args) {
-		int port = 1337; /*
-							 * Integer.parseInt(JOptionPane.showInputDialog(
-							 * null,
-							 * "Enter server port (server will use both the entered port and the next succeding:"
-							 * , "Port?", JOptionPane.QUESTION_MESSAGE));
-							 */
+		int port = Integer.parseInt(JOptionPane.showInputDialog(null,
+				"Enter server port:", "Port?",
+				JOptionPane.QUESTION_MESSAGE));
+
 		// Setup port and socket
 		Server instance = new Server();
 		if (instance.waitForClients(port))
@@ -165,9 +163,9 @@ public class Server {
 						inputs.m_brakeKey);
 			}
 		}
-		
-		
-		// Both functions involving write will be called by same thread i.e. no risk for synchronization issues hopefully
+
+		// Both functions involving write will be called by same thread i.e. no
+		// risk for synchronization issues hopefully
 		public void sendState(final StateUpdate state) {
 			try {
 				m_output.reset();
@@ -179,8 +177,9 @@ public class Server {
 			}
 
 		}
-		
-		// Doing this on the clientthread might make for faster initialization but that doesn't make a big difference
+
+		// Doing this on the clientthread might make for faster initialization
+		// but that doesn't make a big difference
 		public boolean handshake() {
 			try {
 				// TODO: Conditions?? Is name necessary? Client choose team?
@@ -205,12 +204,12 @@ public class Server {
 		public void run() {
 			// Start client
 			// Read input
-			try  {
+			try {
 				InputInfo inputs = (InputInfo) m_input.readObject();
-				while(inputs != null) {
+				while (inputs != null) {
 					inputs = (InputInfo) m_input.readObject();
 					parseInput(inputs);
-				} 
+				}
 			} catch (IOException | ClassNotFoundException e) {
 				e.printStackTrace();
 				System.exit(-1);
