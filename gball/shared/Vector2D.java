@@ -24,7 +24,11 @@ public class Vector2D implements Serializable{
 	m_x = v.getX();
 	m_y = v.getY();
     }
-
+    
+    public String toString(){
+    	return "[" + m_x + ", " + m_y + "]";
+    }
+    
     public double getX() {
 	return m_x;
     }

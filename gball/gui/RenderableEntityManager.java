@@ -2,12 +2,16 @@ package gball.gui;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.ListIterator;
+
+import gball.shared.EntityMeta;
 
 public class RenderableEntityManager {
 
-	private static LinkedList<RenderableEntity> m_entities = new LinkedList<RenderableEntity>();
+	private static List<RenderableEntity> m_entities = Collections.synchronizedList(new LinkedList<RenderableEntity>());
 
 	private static class SingletonHolder {
 		public static final RenderableEntityManager instance = new RenderableEntityManager();
@@ -28,11 +32,8 @@ public class RenderableEntityManager {
 		m_entities.add(new BallRepresentation());
 	}
 
-	public void updatePositions(/*packet from server?*/) {
-		// getEntity(msg.getID()).update(
-//		for (ListIterator<RenderableEntity> itr = m_entities.listIterator(); itr.hasNext();) {
-//			// Update pos from network itr.next().move(); (compare ID)
-//		}
+	public void updateState(EntityMeta state) {
+		getEntity(state.m_entityID).updateEntity(state.m_position, state.m_direction);
 	}
 	
 	public RenderableEntity getEntity(final int ID){

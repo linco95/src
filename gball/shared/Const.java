@@ -9,14 +9,14 @@ public final class Const {
 	public final static int NEEDEDPLAYERS = 4;
 	// Adjust to lower/higher data traffic and if TCP introduces to much delay
 	// (the latter would be unnecessary with UDP)
-	public final static int SERVERUPDATERATE = 30; // Ticks/second
+	public final static int SERVERUPDATERATE = 128; // Ticks/second default: 30
 	public final static double SERVER_INCREMENT = 1000 / SERVERUPDATERATE;
 	// Two client updates per server tick
-	public final static int CLIENTUPDATERATE = 60; // Ticks/second
+	public final static int CLIENTUPDATERATE = 128; // Ticks/second default: 60
 	public final static double CLIENT_INCREMENT = 1000 / CLIENTUPDATERATE;
 
 	// World-related constants
-	public final static double TARGET_FPS = 50;
+	public final static double TARGET_FPS = 50; // default: 50
 	public final static double FRAME_INCREMENT = 1000 / TARGET_FPS;
 	public final static String APP_NAME = "Networked Geometry Ball Tournament 2017 Client";
 	public final static int DISPLAY_WIDTH = 1024;

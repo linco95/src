@@ -1,5 +1,6 @@
 package gball.engine;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
@@ -8,7 +9,7 @@ import gball.shared.Const;
 import gball.shared.Vector2D;
 
 public class EntityManager {
-	private static LinkedList<GameEntity> m_entities = new LinkedList<GameEntity>();
+	private static List<GameEntity> m_entities =  Collections.synchronizedList(new LinkedList<GameEntity>());
 
 	private static class SingletonHolder {
 		public static final EntityManager instance = new EntityManager();

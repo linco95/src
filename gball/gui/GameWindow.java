@@ -27,6 +27,7 @@ public class GameWindow extends Frame implements WindowListener {
         setSize(Const.DISPLAY_WIDTH, Const.DISPLAY_HEIGHT);
         setTitle(Const.APP_NAME);
         initializeEntities();
+        setResizable(false);
         setVisible(true);
     }
     
@@ -60,6 +61,7 @@ public class GameWindow extends Frame implements WindowListener {
         if(offScreenImage != null){
             g.drawImage(offScreenImage, 0, 0, this);
         }
+
     }
 	
     @Override

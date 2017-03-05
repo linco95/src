@@ -1,8 +1,6 @@
 package gball.engine;
 
 import java.awt.Color;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import gball.shared.Const;
 import gball.shared.Vector2D;
@@ -13,6 +11,10 @@ final class Client {
 
 public class Ship extends GameEntity {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int rotation = 0; // Set to 1 when rotating clockwise, -1 when
 								// rotating counterclockwise
 	private boolean braking = false;

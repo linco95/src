@@ -1,10 +1,8 @@
-package gball.server;
+package gball.shared;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import gball.shared.EntityMeta;
 
 public class StateUpdate implements Serializable {
 

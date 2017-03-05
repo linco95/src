@@ -3,10 +3,14 @@ package gball.client;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import gball.gui.GameWindow;
+import gball.shared.InputInfo;
+
 public class InputListener extends KeyAdapter {
 	private final KeyConfig m_keys;
 	private final InputInfo m_inputs;
-
+	
+	
 	public InputListener() {
 		this(KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_S, KeyEvent.VK_W);
 	}
@@ -15,11 +19,11 @@ public class InputListener extends KeyAdapter {
 		m_keys = new KeyConfig(left, right, brake, accelerate);
 		m_inputs = new InputInfo();
 	}
-	
-	public InputInfo getInputs(){
+
+	public InputInfo getInputs() {
 		return m_inputs;
 	}
-	
+
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
