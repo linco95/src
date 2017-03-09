@@ -13,6 +13,8 @@ public class InputListener extends KeyAdapter {
 	private KeyConfig m_keys;
 	private final InputInfo m_inputs;
 
+	
+	/* Gets input settings from client. */
 	public InputListener() {
 
 		int dialogResult = JOptionPane.showConfirmDialog(null,

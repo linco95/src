@@ -1,6 +1,9 @@
 package gball.engine;
 
 public class ScoreKeeper {
+	/*
+	 * Score keeper - Keeps track of scores in the engine on the server side.
+	 */
 	private static class ScoreKeeperSingletonHolder {
 		public static final ScoreKeeper instance = new ScoreKeeper();
 	}

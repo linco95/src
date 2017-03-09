@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import gball.shared.Const;
 import gball.shared.Vector2D;
 
+/* Ball class on the engine side */
 public class Ball extends GameEntity {
 	/**
 	 * 

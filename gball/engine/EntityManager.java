@@ -8,6 +8,7 @@ import java.util.ListIterator;
 import gball.shared.Const;
 import gball.shared.Vector2D;
 
+/* Holds all entities in the engine on the server side. */
 public class EntityManager {
 	private static List<GameEntity> m_entities =  Collections.synchronizedList(new LinkedList<GameEntity>());
 

@@ -5,6 +5,7 @@ import java.io.Serializable;
 import gball.shared.EntityMeta;
 import gball.shared.Vector2D;
 
+/* Base class for all entities */
 public abstract class GameEntity implements Serializable {
 	/**
 	 * 
