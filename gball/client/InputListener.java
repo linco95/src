@@ -42,7 +42,8 @@ public class InputListener extends KeyAdapter {
 	private void setDefaults() {
 		m_keys = new KeyConfig(KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_S, KeyEvent.VK_W);
 	}
-
+	
+	/* Function for requesting keybindnings from user */
 	private int requestKeybinding(String text) {
 		// Taken from
 		// http://stackoverflow.com/questions/15313469/java-keyboard-keycodes-list

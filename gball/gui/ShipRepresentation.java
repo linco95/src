@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import gball.shared.Const;
 
+/* Minimal GUI representation for the ships */
 public class ShipRepresentation extends RenderableEntity {
 
 	private final Color m_color;

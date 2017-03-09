@@ -9,6 +9,7 @@ import java.util.ListIterator;
 
 import gball.shared.EntityMeta;
 
+
 public class RenderableEntityManager {
 
 	private static List<RenderableEntity> m_entities = Collections.synchronizedList(new LinkedList<RenderableEntity>());
@@ -24,14 +25,15 @@ public class RenderableEntityManager {
 	private RenderableEntityManager() {
 	}
 
-	 public void addShip(final int ID, final Color col) {
-	 m_entities.add(new ShipRepresentation(ID, col));
-	 }
+	public void addShip(final int ID, final Color col) {
+		m_entities.add(new ShipRepresentation(ID, col));
+	}
 
 	public void addBall() {
 		m_entities.add(new BallRepresentation());
 	}
 
+	/* Updates the gamestate to show the most reason one */
 	public void updateState(EntityMeta state) {
 		getEntity(state.m_entityID).updateEntity(state.m_position, state.m_direction);
 	}

@@ -3,6 +3,7 @@ package gball.engine;
 import gball.shared.Const;
 import gball.shared.Vector2D;
 
+/* Server sided engine */
 public class World extends Thread {
 
 	// public static final String SERVERIP = "127.0.0.1"; // 'Within' the

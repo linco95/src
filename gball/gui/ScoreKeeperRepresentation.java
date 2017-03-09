@@ -2,6 +2,7 @@ package gball.gui;
 
 import gball.shared.Const;
 
+/* Minimal GUI representation for the score keeping */
 public class ScoreKeeperRepresentation {
 	private static class ScoreKeeperSingletonHolder {
 		public static final ScoreKeeperRepresentation instance = new ScoreKeeperRepresentation();

@@ -2,6 +2,7 @@ package gball.gui;
 
 import gball.shared.Vector2D;
 
+/* Class used for rendering stuff. Ship and ball are based on this. */
 public abstract class RenderableEntity {
 	private final int m_entityID;
 	private final Vector2D m_position = new Vector2D();

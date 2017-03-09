@@ -5,6 +5,7 @@ import java.awt.Graphics;
 
 import gball.shared.Const;
 
+/* Minimal GUI representation for the ball */
 public class BallRepresentation extends RenderableEntity {
 	private Color m_color = Const.BALL_COLOR;
 	

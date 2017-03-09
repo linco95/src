@@ -28,10 +28,14 @@ public class Client {
 		instance.start();
 	}
 
+	/* Client constructor */
 	public Client(String serverHostname, int serverPort) {
 		System.out.println("Starting client.");
+		// Opens a new gamewindow to show game in.
 		m_gameWindow = new GameWindow();
+		// Creates a connection from client to server. 
 		m_connection = new ClientToServer(m_gameWindow, serverHostname, serverPort);
+		// Starts a new inputlistener and adds it to the gamewindow.
 		m_inputs = new InputListener();
 		m_gameWindow.addKeyListener(m_inputs);
 	}
@@ -41,8 +45,9 @@ public class Client {
 			// Start receiving thread
 			m_connection.start();
 			while (true) {
+				// Checks if new update should be made.
 				if (newUpdate()) {
-					// send input to server
+					// Send input from client to server
 					m_connection.sendInputs(m_inputs.getInputs());
 				}
 				try {
@@ -54,6 +59,7 @@ public class Client {
 		}
 	}
 
+	/* Function that checks if a new update should be made */
 	private boolean newUpdate() {
 		double currentTime = System.currentTimeMillis();
 		double delta = currentTime - m_lastTime;

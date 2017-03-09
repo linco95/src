@@ -20,8 +20,10 @@ public class ClientToServer extends Thread {
 	private ObjectOutputStream m_output;
 	private GameWindow m_gui;
 
+	/* Constructor for a client to server connection */
 	public ClientToServer(GameWindow gui, String serverHostname, int serverPort) {
 		try {
+			// Creates socket and create in and output streams.
 			System.out.println("Creating socket.");
 			m_socket = new Socket(InetAddress.getByName(serverHostname), serverPort);
 			m_output = new ObjectOutputStream(m_socket.getOutputStream());
@@ -31,9 +33,11 @@ public class ClientToServer extends Thread {
 			e.printStackTrace();
 			System.exit(-1);
 		}
+		// Binds connection to gui.
 		m_gui = gui;
 	}
 
+	/* Handshake function to recieve from server if connection is allowed or not */
 	public boolean handshake() {
 		try {
 			return ((String) m_input.readObject()).equals("SUCCESS");
@@ -44,6 +48,7 @@ public class ClientToServer extends Thread {
 		return false;
 	}
 
+	/* Used to send input from client to server */
 	public void sendInputs(InputInfo inputs) {
 //		System.out.println("Sending inputs");
 		try  {
@@ -55,10 +60,11 @@ public class ClientToServer extends Thread {
 		}
 	}
 
+	/* Run function that is used when starting thread */
 	public void run() {
 		receiveStates();
 	}
-
+	/* Receive function that will recieve latest state from server tell GUI to repaint */
 	public void receiveStates() {
 		try {
 			StateUpdate state;
@@ -87,5 +93,5 @@ public class ClientToServer extends Thread {
 		}
 	}
 
-	// Receive function that will tell GUI to repaint
+	// 
 }

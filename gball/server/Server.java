@@ -99,7 +99,7 @@ public class Server {
 			c.sendState(state);
 		}
 	}
-
+	/* Function to get the latest game state from the engine */
 	public StateUpdate getState() {
 		List<EntityMeta> entityInfo = new ArrayList<EntityMeta>();
 		int[] currentScores;
@@ -133,8 +133,6 @@ public class Server {
 	 * Inner class of server that represents a client. This is made an inner
 	 * class as it should be able to remove itself from the connected clients if
 	 * it needs to.
-	 * 
-	 * @author a15andkj
 	 *
 	 */
 	private class ClientThread extends Thread {
@@ -148,6 +146,7 @@ public class Server {
 			m_shipID = shipID;
 			m_socket = socket;
 			try {
+				// Creating in and output streams.
 				m_output = new ObjectOutputStream(m_socket.getOutputStream());
 				m_input = new ObjectInputStream(m_socket.getInputStream());
 			} catch (IOException e) {
@@ -156,6 +155,7 @@ public class Server {
 			}
 		}
 
+		/* Function used to update the input from clients so that the engine has the latest input */
 		private void parseInput(InputInfo inputs) {
 			GameEntity entity = EntityManager.getEntity(m_shipID);
 			if (entity instanceof Ship) {
