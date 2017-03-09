@@ -23,7 +23,7 @@ public class ClientToServer extends Thread {
 	/* Constructor for a client to server connection */
 	public ClientToServer(GameWindow gui, String serverHostname, int serverPort) {
 		try {
-			// Creates socket and create in and output streams.
+			// Creates socket and creates in and output streams.
 			System.out.println("Creating socket.");
 			m_socket = new Socket(InetAddress.getByName(serverHostname), serverPort);
 			m_output = new ObjectOutputStream(m_socket.getOutputStream());
@@ -71,11 +71,14 @@ public class ClientToServer extends Thread {
 			while (m_socket.isConnected() && !m_socket.isClosed()
 					&& (state = (StateUpdate) m_input.readObject()) != null) {
 //				System.out.println("State received");
+				// Updates the state for all entities.
 				for (EntityMeta ent : state.m_entities) {
 					RenderableEntityManager.getInstance().updateState(ent);
 				}
+				// Updates score.
 				ScoreKeeperRepresentation.getInstance().updateScore(state.m_scores[0], state.m_scores[1]);
 //				System.out.println("Received state");
+				// Repaints.
 				m_gui.repaint();
 			}
 		} catch (IOException | ClassNotFoundException e) {
