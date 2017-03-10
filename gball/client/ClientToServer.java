@@ -70,7 +70,6 @@ public class ClientToServer extends Thread {
 			StateUpdate state;
 			while (m_socket.isConnected() && !m_socket.isClosed()
 					&& (state = (StateUpdate) m_input.readObject()) != null) {
-//				System.out.println("State received");
 				// Updates the state for all entities.
 				for (EntityMeta ent : state.m_entities) {
 					RenderableEntityManager.getInstance().updateState(ent);

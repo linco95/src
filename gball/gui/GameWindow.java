@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.Random;
 
 import gball.client.Client;
 import gball.shared.Const;
@@ -31,6 +32,7 @@ public class GameWindow extends Frame implements WindowListener {
 		setTitle(Const.APP_NAME);
 		initializeEntities();
 		setResizable(false);
+		setBackground(Color.BLACK);
 		setVisible(true);
 	}
 
@@ -57,6 +59,9 @@ public class GameWindow extends Frame implements WindowListener {
 		}
 
 		offScreenGraphicsCtx.setColor(Const.BG_COLOR);
+//		Random rand = new Random();
+//		offScreenGraphicsCtx.setColor(new Color(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256)));
+
 		offScreenGraphicsCtx.fillRect(0, 0, getSize().width, getSize().height);
 		RenderableEntityManager.getInstance().renderAll(offScreenGraphicsCtx);
 		ScoreKeeperRepresentation.getInstance().render(offScreenGraphicsCtx);

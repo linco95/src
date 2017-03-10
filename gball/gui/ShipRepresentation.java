@@ -1,6 +1,7 @@
 package gball.gui;
 
 import java.awt.Color;
+import java.util.Random;
 
 import gball.shared.Const;
 
