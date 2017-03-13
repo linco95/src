@@ -29,10 +29,15 @@ public class Server {
 	private double m_actualUpdateRate = 0.0;
 
 	public static void main(String[] args) {
-		int port = Integer.parseInt(JOptionPane.showInputDialog(null,
+		int port;
+		if(args.length == 1){
+			port = Integer.parseInt(args[0]);
+		}
+		else {
+			port = Integer.parseInt(JOptionPane.showInputDialog(null,
 				"Enter server port:", "Port?",
 				JOptionPane.QUESTION_MESSAGE));
-
+		}
 		// Setup port and socket
 		Server instance = new Server();
 		if (instance.waitForClients(port))
@@ -99,6 +104,7 @@ public class Server {
 			c.sendState(state);
 		}
 	}
+
 	/* Function to get the latest game state from the engine */
 	public StateUpdate getState() {
 		List<EntityMeta> entityInfo = new ArrayList<EntityMeta>();
@@ -155,7 +161,10 @@ public class Server {
 			}
 		}
 
-		/* Function used to update the input from clients so that the engine has the latest input */
+		/*
+		 * Function used to update the input from clients so that the engine has
+		 * the latest input
+		 */
 		private void parseInput(InputInfo inputs) {
 			GameEntity entity = EntityManager.getEntity(m_shipID);
 			if (entity instanceof Ship) {
