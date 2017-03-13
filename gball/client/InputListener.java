@@ -12,11 +12,11 @@ import gball.shared.InputInfo;
 public class InputListener extends KeyAdapter {
 	private KeyConfig m_keys;
 	private final InputInfo m_inputs;
-
+	private final ClientToServer m_connection;
 	
 	/* Gets input settings from client. */
-	public InputListener() {
-
+	public InputListener(ClientToServer connection) {
+		m_connection = connection;
 		int dialogResult = JOptionPane.showConfirmDialog(null,
 				"Would you like to set your keybinds or use default [WASD]?", "Keys", JOptionPane.YES_NO_OPTION);
 		if (dialogResult == JOptionPane.YES_OPTION) {
@@ -90,6 +90,7 @@ public class InputListener extends KeyAdapter {
 		} else if (e.getKeyCode() == m_keys.brakeKey()) {
 			m_inputs.m_brakeKey = true;
 		}
+		m_connection.sendInputs(m_inputs.copy());
 	}
 
 	@Override
@@ -103,6 +104,7 @@ public class InputListener extends KeyAdapter {
 		} else if (e.getKeyCode() == m_keys.brakeKey()) {
 			m_inputs.m_brakeKey = false;
 		}
+		m_connection.sendInputs(m_inputs.copy());
 	}
 }
 

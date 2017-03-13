@@ -26,6 +26,7 @@ public class Client {
 		Client instance = new Client(serverHost, serverPort);
 		// start loop
 		instance.start();
+//		JOptionPane.showMessageDialog(null, "Main thread exiting.", "Bye main.", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	/* Client constructor */
@@ -36,15 +37,17 @@ public class Client {
 		// Creates a connection from client to server. 
 		m_connection = new ClientToServer(m_gameWindow, serverHostname, serverPort);
 		// Starts a new inputlistener and adds it to the gamewindow.
-		m_inputs = new InputListener();
-		m_gameWindow.addKeyListener(m_inputs);
+		m_inputs = new InputListener(m_connection);
 	}
 
 	public void start() {
 		if (m_connection.handshake()) {
-			// Start receiving thread
+			// Start receiving thread (This could be done on main now that there is no busy wait in the main thread/client)
 			m_connection.start();
-			while (true) {
+			// Make sure that no inputs are sent before the handshake
+			m_gameWindow.addKeyListener(m_inputs);
+
+			/*while (true) {
 				// Checks if new update should be made.
 				if (newUpdate()) {
 					// Send input from client to server
@@ -55,7 +58,7 @@ public class Client {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-			}
+			}*/
 		}
 	}
 

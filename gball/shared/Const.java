@@ -6,7 +6,7 @@ import java.awt.Font;
 public final class Const {
 
 	// Network related constants (move to its own const?)
-	public final static int NEEDEDPLAYERS = 4;
+	public final static int NEEDEDPLAYERS = 1;
 	// Adjust to lower/higher data traffic and if TCP introduces to much delay
 	// (the latter would be unnecessary with UDP)
 	public final static int SERVERUPDATERATE = 60; // Ticks/second default: 30
